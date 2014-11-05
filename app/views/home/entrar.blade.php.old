@@ -1,0 +1,50 @@
+@extends('admin.layouts.padrao')
+ 
+@section('head')
+    @parent
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-social.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+@stop
+
+@section('content')
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+        {{ Form::open(array(
+            'url' => 'entrar',
+            'class'  => 'well'
+        )) }}
+            
+            <div class="form-group">
+                {{ Form::email('email', '', array('class' => 'form-control input-lg', 'autofocus', 'placeholder' => 'E-mail')) }}
+            </div>
+            
+            <div class="form-group">
+                {{ Form::password('senha', array('class' => 'form-control input-lg', 'placeholder' => 'Senha')) }}
+            </div>
+            
+            @if (Session::has('flash_error'))
+                <div class="alert alert-danger">E-mail ou senha inválidos.</div>
+            @endif
+            
+            <label class="checkbox">
+                {{ Form::checkbox('remember', 'remember', true) }} Lembre-se de mim
+            </label>
+            
+            {{ Form::submit('Entrar', array('class' => 'btn btn-lg btn-primary btn-block')) }}
+
+            <div class="col1">
+                <h5></h5>                
+                <a class="btn btn-block btn-social btn-twitter">
+                    <i class="fa fa-twitter"></i> Twitter
+                </a>    
+                <h5></h5>                
+                <a class="btn btn-block btn-social btn-facebook">
+                    <i class="fa fa-facebook"></i> Facebook
+                </a>    
+            </div>    
+            
+ 
+        {{ Form::close() }}
+    </div>
+</div>
+@stop

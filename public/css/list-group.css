@@ -1,0 +1,10 @@
+span.list-group-item {
+    height:auto;
+    min-height:140px;
+}
+span.list-group-item.active small {
+    color:#fff;
+}
+.stars {
+    margin:20px auto 1px;    
+}
